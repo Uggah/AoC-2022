@@ -130,7 +130,7 @@ func run_second() {
 		right_contains_left := false
 		left_contains_right := false
 
-		// Does right contain all of left?
+		// Does right contain something of left?
 		for i := range left_range {
 			if does_contain(right_range, left_range[i]) {
 				right_contains_left = true
@@ -138,7 +138,7 @@ func run_second() {
 			}
 		}
 
-		// Does left contain all of right?
+		// Does left contain something of right?
 		for i := range right_range {
 			if does_contain(left_range, right_range[i]) {
 				left_contains_right = true
