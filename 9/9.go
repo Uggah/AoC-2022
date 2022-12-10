@@ -476,7 +476,7 @@ func run_second() {
 			}
 
 			if debug {
-				print_long_matrix(knot_map, x, y)
+				print_long_matrix(knot_map, x, y, min_x, min_y)
 			}
 		}
 
@@ -534,7 +534,7 @@ func print_matrix(h_x int, h_y int, t_x int, t_y int, x int, y int) {
 
 }
 
-func print_long_matrix(knot_map map[int][]int, x int, y int) {
+func print_long_matrix(knot_map map[int][]int, x int, y int, min_x int, min_y int) {
 	matrix := make([][]byte, y+1)
 
 	for i := range matrix {
@@ -552,8 +552,8 @@ func print_long_matrix(knot_map map[int][]int, x int, y int) {
 	}
 
 	for i := 9; i >= 0; i-- {
-		x := knot_map[i][0]
-		y := knot_map[i][1]
+		x := knot_map[i][0] + Abs(min_x)
+		y := knot_map[i][1] + Abs(min_y)
 
 		if i == 0 {
 			matrix[y][x] = 'H'
